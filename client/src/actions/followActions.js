@@ -25,7 +25,8 @@ export const getFollowers = id => dispatch => {
     .then(res => {
       dispatch({
         type: GET_FOLLOWERS,
-        payload: res.data
+        payload: res.data,
+        id: id
       })
      }
     )
@@ -43,7 +44,8 @@ export const getFollowing = id => dispatch => {
     .then(res =>
       dispatch({
         type: GET_FOLLOWING,
-        payload: res.data
+        payload: res.data,
+        id: id
       })
     )
     .catch(err =>

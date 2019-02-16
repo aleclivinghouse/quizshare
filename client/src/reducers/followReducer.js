@@ -18,12 +18,12 @@ export default function(state = initialState, action){
     console.log(action.payload);
     return {
       ...state,
-      followers: action.payload
+      [action.id]: action.payload
     }
     case GET_FOLLOWING:
     return {
       ...state,
-      following: action.payload
+      [action.id+'-following']: action.payload
     }
     case UN_FOLLOW:
     return {

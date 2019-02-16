@@ -12,36 +12,31 @@ class Follow extends Component{
     this.props.getFollowing(this.props.theId);
   }
 
-  onDeleteClick(id){
-      this.props.unFollow(id);
-  }
 
 
   render(){
-    let followers = this.props.follow.followers;
-    console.log('these are the followers');
+  // console.log('here are the props');
+  //   console.log(this.props);
+    const followers = (this.props.follow[this.props.theId] !== undefined) ? this.props.follow[this.props.theId]: [];
+    console.log('here are the followers');
     console.log(followers);
-    let following = this.props.follow.following;
-    console.log('here are the following');
-    console.log(following)
+
+    const following = (this.props.follow[this.props.theId+'-following'] !== undefined) ? this.props.follow[this.props.theId+'-following']: [];
+    console.log(following);
     return(
       <div>
-         <Collapsible trigger="See Follows" className="btn btn-secondary">
-          <div>
-            <h6>Followers</h6>
-            <ul className="list">
-            {followers.map(p => <div><li key={p._id}>{p.follower.name}</li>
-              </div>
-             )}
-            </ul>
-            <h6>Following</h6>
-            <ul className="list">
-              {following.map(p => <div><li key={p._id}>{p.following.name}</li>
-                </div>
-          )}
-            </ul>
-         </div>
-         </Collapsible>
+        <h6>Followers</h6>
+      <ul className="list">
+      {followers.map(p => <div><li key={p._id}>{p.follower.name}</li>
+        </div>
+       )}
+      </ul>
+      <h6>Following</h6>
+      <ul className="list">
+        {following.map(p => <div><li key={p._id}>{p.following.name}</li>
+          </div>
+      )}
+      </ul>
       </div>
     )
   }

@@ -88,7 +88,8 @@ export const getPostsFromUser = id => dispatch => {
     .then(res =>
       dispatch({
         type: GET_POSTS,
-        payload: res.data
+        payload: res.data,
+        id: id
       })
     )
     .catch(err =>

@@ -16,13 +16,13 @@ export default function(state=initialState, action){
     case GET_POSTS:
       return {
         ...state,
-        posts: action.payload,
+        [action.id]: action.payload,
         loading: false
       }
       case GET_POSTS_FROM_USER:
         return {
           ...state,
-          posts: action.payload,
+          [action.id]: action.payload,
           loading: false
         }
       case GET_POST:
@@ -56,7 +56,7 @@ export default function(state=initialState, action){
       case LIKE_COMMENT:
       return {
         ...state,
-        post: action.payload, 
+        post: action.payload,
         posts: state.posts.map(post => {
           if(post._id === action.payload._id){
             post = action.payload;

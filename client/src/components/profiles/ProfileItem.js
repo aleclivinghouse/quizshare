@@ -16,7 +16,7 @@ class ProfileItem extends Component {
   }
   render(){
     const profile = this.props.profile;
-    const posts = this.props.post.posts;
+    const posts = (this.props.post[this.props.profile.user._id] !== undefined) ? this.props.post[this.props.profile.user._id]: [];
     let questionsArray = [];
     return(
       <div className="card card-body bg-light mb-3">
@@ -25,18 +25,18 @@ class ProfileItem extends Component {
               <Follow theId={this.props.profile.user._id}/>
               <h3>{profile.user.name}</h3>
               <p>{profile.bio}</p>
-                <ul>
-                  {posts.map((post, index) => (
-                    <div>
-                      <li>
-                        <p>{post.q1}</p>
-                        <p>{post.q2}</p>
-                        <p>{post.q3}</p>
-                        <Link to={`/post/${post._id}`}>Go to Post</Link>
-                      </li>
-                    </div>
-                ))}
-                </ul>
+             <ul>
+            {posts.map((post, index) => (
+              <div>
+                <li>
+                  <p>{post.q1}</p>
+                  <p>{post.q2}</p>
+                  <p>{post.q3}</p>
+                  <Link to={`/post/${post._id}`}>Go to Post</Link>
+                </li>
+              </div>
+          ))}
+          </ul>
           </div>
         </div>
         <div>
