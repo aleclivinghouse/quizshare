@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PostForm from './PostForm';
 import {connect} from 'react-redux';
 import {getPosts} from '../../actions/postActions';
+import PostItemForList from './PostItemForList';
 import PostFeed from './PostFeed';
 class Posts extends Component{
   componentDidMount(){
