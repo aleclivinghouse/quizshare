@@ -16,7 +16,8 @@ class ProfileItem extends Component {
   }
   render(){
     const profile = this.props.profile;
-    const posts = (this.props.post[this.props.profile.user._id] !== undefined) ? this.props.post[this.props.profile.user._id]: [];
+    const posts = (this.props.post[this.props.profile.user._id] !== undefined)
+    ? this.props.post[this.props.profile.user._id]: [];
     let questionsArray = [];
     return(
       <div className="card card-body bg-light mb-3">
