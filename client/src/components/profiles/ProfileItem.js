@@ -23,28 +23,30 @@ class ProfileItem extends Component {
     return(
       <div className="card card-body mb-3">
         <div className="row">
-          <div className="col-lg-6 col-md-4 col-8">
+          <div className="col-lg-6 col-md-4 col-8 top-container">
               <Follow theId={this.props.profile.user._id}/>
               <h3>{profile.user.name}</h3>
               <p>{profile.bio}</p>
-             <ul>
-            {posts.map((post, index) => (
-              <div>
-                <li>
-                  <p>{post.q1}</p>
-                  <p>{post.q2}</p>
-                  <p>{post.q3}</p>
-                  <Link to={`/post/${post._id}`}>Go to Post</Link>
-                </li>
-              </div>
-          ))}
-          </ul>
           </div>
-        </div>
-        <div>
-          <button onClick={this.onFollowClick.bind(this)} className="btn-info">
-            Follow
-          </button>
+          <div>
+            <button onClick={this.onFollowClick.bind(this)} className="btn-info">
+              Follow
+            </button>
+          </div>
+          <ul>
+         {posts.map((post, index) => (
+           <div className="post-card">
+             <li>
+               <p>{post.q1}</p>
+               <p>{post.q2}</p>
+               <p>{post.q3}</p>
+               <button className="btn btn-info">
+               <Link to={`/post/${post._id}`}>Go to Post</Link>
+               </button>
+             </li>
+           </div>
+       ))}
+       </ul>
         </div>
         <div className="cold-md-4 d-none d-md-block">
           <h4>Things I like</h4>

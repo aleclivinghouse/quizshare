@@ -7,3 +7,26 @@
   color: black;
   background-color: lightgrey;
 }
+
+ul {
+  list-style-type: none;
+}
+
+.post-card{
+  color:blue;
+  background-color: white;
+  margin: 10px;
+  text-align: center;
+  min-width: 600px;
+  min-height: 200px;
+  border-radius: 5px;
+}
+
+.top-container{
+  display: block;
+  text-align: center;
+}
+
+.btn {
+  color: white;
+}
