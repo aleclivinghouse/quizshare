@@ -87,7 +87,7 @@ export const getPostsFromUser = id => dispatch => {
     .get(`/api/posts/user/${id}`)
     .then(res =>
       dispatch({
-        type: GET_POSTS,
+        type: GET_POSTS_FROM_USER,
         payload: res.data,
         id: id
       })
