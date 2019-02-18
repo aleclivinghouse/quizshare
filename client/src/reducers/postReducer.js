@@ -16,8 +16,8 @@ export default function(state=initialState, action){
     case GET_POSTS:
       return {
         ...state,
-      post: action.payload,
-        loading: false
+      posts: action.payload,
+      loading: false
       }
       case GET_POSTS_FROM_USER:
         return {
