@@ -5,6 +5,7 @@ import isEmpty from '../../validation/is-empty';
 import {getPostsFromUser} from '../../actions/postActions';
 import {setFollow} from '../../actions/followActions';
 import Follow from './Follow';
+import './cards.css'
 
 class ProfileItem extends Component {
   componentDidMount(){
@@ -20,7 +21,7 @@ class ProfileItem extends Component {
     ? this.props.post[this.props.profile.user._id]: [];
     let questionsArray = [];
     return(
-      <div className="card card-body bg-light mb-3">
+      <div className="card card-body mb-3">
         <div className="row">
           <div className="col-lg-6 col-md-4 col-8">
               <Follow theId={this.props.profile.user._id}/>
@@ -47,7 +48,7 @@ class ProfileItem extends Component {
         </div>
         <div className="cold-md-4 d-none d-md-block">
           <h4>Things I like</h4>
-          <ul className="list-group">
+          <ul className="list-group text-center skills">
             {profile.skills.map((skill, index) => (
               <li key={index} className="list-group-item">
                 <p>
