@@ -10,3 +10,12 @@
 footer {
   position: absolute;
 } */
+
+nav.navbar{
+  background-color: black;
+}
+
+footer {
+  background-color: black;
+  color:blue;
+}

@@ -5,7 +5,7 @@ class Landing extends Component{
   render(){
     return(
       <div className="page-wrap">
-      <div className="dark-overlay landing-inner">
+      <div className="landing-inner">
       <div className="container">
         <div className="row">
           <div className="col-md-12 text-center">
