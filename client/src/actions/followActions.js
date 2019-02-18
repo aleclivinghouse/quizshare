@@ -8,7 +8,8 @@ export const setFollow = (followingId, followerId) => dispatch => {
     .then(res =>
       dispatch({
         type: SET_FOLLOW,
-        payload: res.data
+        payload: res.data,
+        id: followingId
       })
     )
     .catch(err =>
