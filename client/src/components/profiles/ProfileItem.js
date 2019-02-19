@@ -24,14 +24,16 @@ class ProfileItem extends Component {
       <div className="card card-body mb-3">
         <div className="row">
           <div className="col-lg-6 col-md-4 col-8 top-container">
-              <Follow theId={this.props.profile.user._id}/>
-              <h3>{profile.user.name}</h3>
-              <p>{profile.bio}</p>
           </div>
           <div>
-            <button onClick={this.onFollowClick.bind(this)} className="btn-info">
+            <div className="follow-button-wrapper">
+            <button onClick={this.onFollowClick.bind(this)} className="btn btn-primary">
               Follow
             </button>
+            </div>
+            <Follow theId={this.props.profile.user._id}/>
+            <h3 className="to-center">{profile.user.name}</h3>
+            <p className="to">{profile.bio}</p>
           </div>
           <ul>
          {posts.map((post, index) => (
@@ -40,8 +42,8 @@ class ProfileItem extends Component {
                <p>{post.q1}</p>
                <p>{post.q2}</p>
                <p>{post.q3}</p>
-               <button className="btn btn-info">
-               <Link to={`/post/${post._id}`}>Go to Post</Link>
+               <button className="btn btn-primary the-button">
+               <Link to={`/post/${post._id}`} className="the-button">Go to Post</Link>
                </button>
              </li>
            </div>

@@ -126,7 +126,7 @@ closeModal() {
               contentLabel="Example Modal"
               style={customStyles}
               >
-              <button onClick={this.closeModal} className="btn btn-info">close</button>
+              <button onClick={this.closeModal} className="btn btn-primary">close</button>
               <div>{this.state.message}</div>
             </Modal>
           </div>
@@ -146,7 +146,7 @@ closeModal() {
                   />
                   <span className="badge badge-light">{post.likes.length}</span>
                 </button>
-                <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
+                <Link to={`/post/${post._id}`} className="btn btn-primary mr-1">
                 View Quiz
                 </Link>
                 {post.user === auth.user.id ? (

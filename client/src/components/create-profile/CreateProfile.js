@@ -78,7 +78,7 @@ onChange(e){
             error = {errors.bio}
             info="write a short bio"
             />
-          <input type="submit" value="Submit" className="btn btn-info btn-block"/>
+          <input type="submit" value="Submit" className="btn btn-primary btn-block"/>
           </form>
           </div>
         </div>

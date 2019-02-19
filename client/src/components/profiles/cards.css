@@ -12,6 +12,7 @@ ul {
   list-style-type: none;
 }
 
+@media only screen and (min-width: 768px) {
 .post-card{
   color:blue;
   background-color: white;
@@ -22,11 +23,34 @@ ul {
   border-radius: 5px;
 }
 
+}
+@media only screen and (max-width: 767px) {
+.post-card{
+  color:blue;
+  background-color: white;
+  margin: 10px;
+  text-align: center;
+  min-width: 200px;
+  min-height: 200px;
+  border-radius: 5px;
+}
+
+}
+
 .top-container{
   display: block;
   text-align: center;
 }
 
-.btn {
+.the-button {
   color: white;
+}
+
+.to-center{
+  text-align: center;
+}
+
+.follow-button-wrapper {
+  margin-right: 5px;
+  display: inline-block;
 }
