@@ -37,9 +37,14 @@ ul {
 
 }
 
+.the-list {
+  margin: auto
+}
+
 .top-container{
   display: block;
   text-align: center;
+  margin: auto;
 }
 
 .the-button {

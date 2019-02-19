@@ -24,18 +24,19 @@ class ProfileItem extends Component {
       <div className="card card-body mb-3">
         <div className="row">
           <div className="col-lg-6 col-md-4 col-8 top-container">
-          </div>
           <div>
             <div className="follow-button-wrapper">
             <button onClick={this.onFollowClick.bind(this)} className="btn btn-primary">
               Follow
             </button>
-            </div>
+          </div>
             <Follow theId={this.props.profile.user._id}/>
             <h3 className="to-center">{profile.user.name}</h3>
-            <p className="to">{profile.bio}</p>
+            <p className="to-center">{profile.bio}</p>
           </div>
-          <ul>
+          </div>
+
+          <ul className="the-list">
          {posts.map((post, index) => (
            <div className="post-card">
              <li>
