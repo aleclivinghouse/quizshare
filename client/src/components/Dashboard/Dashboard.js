@@ -29,6 +29,9 @@ class Dashboard extends Component{
       dashboardContent = (
         <div>
           <p className="lead text-muted"><Link to={`/dashboard`}>Welcome {user.name} </Link></p>
+            <p className="lead text-muted">Hit the profiles tab like above to see all the user profiles and to find games by user.</p>
+            <p className="lead text-muted">Hit the create game tab to create a game and see games sorted by most recent.</p>
+            <p className="lead text-muted">Feel free to follow, like, comment, and post.</p>
           <div style={{marginBottom: '60px'}} />
           <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">Delete My Account-0</button>
               <Link to="/edit-profile" className="btn btn-light">
@@ -41,7 +44,7 @@ class Dashboard extends Component{
       dashboardContent = (
         <div>
           <p className="lead text-muted">Welcome {user.name}</p>
-          <p>You have not yet set up a profile, please add some info</p>
+          <p className="lead text-muted">You have not yet set up a profile, please add some info</p>
           <Link to="/create-profile" className="btn btn-lg btn-primary"> Create Profile</Link>
         </div>
       );
