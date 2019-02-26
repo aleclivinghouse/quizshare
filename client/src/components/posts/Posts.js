@@ -10,8 +10,6 @@ class Posts extends Component{
   }
   render(){
     const { posts, loading} = this.props.post;
-    console.log('these are the posts in the post component');
-    console.log(posts);
     let postContent;
     if(posts === null || loading){
       <h4>Loading...</h4>

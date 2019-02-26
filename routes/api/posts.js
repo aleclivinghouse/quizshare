@@ -115,7 +115,6 @@ router.post(
   (req, res) => {
     console.log('this is the reponse going to the backend');
     console.log(req.params);
-    Profile.findOne({ user: req.user.id }).then(profile => {
       Post.findById(req.params.id)
         .then(post => {
           if (
@@ -132,7 +131,6 @@ router.post(
           // Add user id to likes array
         })
         .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
-    });
   }
 );
 
@@ -185,7 +183,6 @@ router.post(
   '/unlike/:id',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Profile.findOne({ user: req.user.id }).then(profile => {
       Post.findById(req.params.id)
         .then(post => {
           if (
@@ -209,7 +206,6 @@ router.post(
           post.save().then(post => res.json(post));
         })
         .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
-    });
   }
 );
 

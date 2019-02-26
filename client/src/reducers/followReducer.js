@@ -17,13 +17,13 @@ export default function(state = initialState, action){
     case UN_FOLLOW:
     return {
       ...state,
-      [action.id]: [action.payload, ...state[action.id]]
+      [action.id+'-following']: state.f[action.id].filter(follow => follow._id !== action.payload._id)
     }
     case GET_FOLLOWERS:
     console.log(action.payload);
     return {
       ...state,
-      [action.id]: action.payload
+      [action.id+'-followers']: action.payload
     }
     case GET_FOLLOWING:
     return {
@@ -35,3 +35,5 @@ export default function(state = initialState, action){
       return state;
   }
 }
+
+//

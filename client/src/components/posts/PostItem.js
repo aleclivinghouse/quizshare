@@ -38,7 +38,6 @@ class PostItem extends Component {
   }
 
   onLikeClick(id) {
-    console.log(id)
     this.props.addLike(id);
   }
 
@@ -96,8 +95,6 @@ closeModal() {
 
   render() {
     const { post, auth, showActions } = this.props;
-    console.log('this is the posts likes');
-    console.log(post.likes);
 
     return (
       <div className="card card-body">

@@ -15,14 +15,8 @@ class Follow extends Component{
 
 
   render(){
-  // console.log('here are the props');
-  //   console.log(this.props);
-    const followers = (this.props.follow[this.props.theId] !== undefined) ? this.props.follow[this.props.theId]: [];
-    console.log('here are the followers');
-    console.log(followers);
-
+    const followers = (this.props.follow[this.props.theId+'-followers'] !== undefined) ? this.props.follow[this.props.theId+'-followers']: [];
     const following = (this.props.follow[this.props.theId+'-following'] !== undefined) ? this.props.follow[this.props.theId+'-following']: [];
-    console.log(following);
     return(
        <Collapsible trigger="See Follows" className="btn btn-secondary">
       <div>

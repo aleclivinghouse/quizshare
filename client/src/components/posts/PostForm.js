@@ -62,7 +62,6 @@ class PostForm extends Component {
         newPost[item] = 'Truth'
       }
     }
-    console.log(newPost)
     this.props.addPost(newPost);
     this.setState({ text: '' });
   }

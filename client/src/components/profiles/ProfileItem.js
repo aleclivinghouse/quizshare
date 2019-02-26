@@ -10,9 +10,9 @@ import Follow from './Follow';
 import './cards.css'
 
 class ProfileItem extends Component {
-  componentWillMount(){
-    this.props.getPostsFromUser(this.props.profile.user._id);
+  componentDidMount(){
     this.props.getFollowers(this.props.profile.user._id);
+    this.props.getPostsFromUser(this.props.profile.user._id);
   }
 
   onFollowClick(){
@@ -20,52 +20,20 @@ class ProfileItem extends Component {
   }
 
   onUnFollowClick(){
-    console.log('unFollow click fired');
-    console.log(this.props.profile.user._id);
-    console.log(this.props.auth.user.id);
     this.props.unFollow(this.props.profile.user._id, this.props.auth.user.id)
   }
   render(){
     const profile = this.props.profile;
     const posts = (this.props.post[this.props.profile.user._id] !== undefined)
     ? this.props.post[this.props.profile.user._id]: [];
-    let questionsArray = [];
 
-    console.log('these are the followers');
-    console.log(this.props.followers);
-    const findAlreadyFollowed = (followers = []) => {
-      followers.forEach((follower) => {
-        if(follower.follower._id === this.props.profile.user._id){
-          return true;
-        }
-      });
-      return true;
-    }
-    const alreadyFollowed = findAlreadyFollowed(this.props.followers);
-    let followButton;
-    if(alreadyFollowed === false){
-      followButton = (
-        <button onClick={this.onFollowClick.bind(this)} className="btn btn-primary">
-          Follow
-        </button>
-      );
-    } else {
-      followButton = (
-      <button onClick={this.onUnFollowClick.bind(this)} className="btn btn-primary">
-        UnFollow
-      </button>
-      );
-    }
-
-    console.log('this is alreay followed')
-    console.log(alreadyFollowed);
     return(
       <div className="card card-body mb-3">
         <div className="row">
           <div className="col-lg-6 col-md-4 col-8 top-container">
           <div>
             <div className="follow-button-wrapper">
-              {followButton}
+              
           </div>
             <Follow theId={this.props.profile.user._id}/>
             <h3 className="to-center">{profile.user.name}</h3>
@@ -111,3 +79,36 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, {getPostsFromUser, setFollow, unFollow, getFollowers})(ProfileItem);
+
+/*
+let questionsArray = [];
+
+
+const findAlreadyFollowed = (followers) => {
+  followers.forEach((follower) => {
+    if(follower.follower._id === this.props.profile.user._id){
+      return true;
+    }
+  });
+  return false;
+}
+console.log('these are the followers in props');
+console.log(this.props.follow);
+
+const alreadyFollowed = findAlreadyFollowed(this.props.follow[this.props.profile.user._id+'-followers']);
+let followButton;
+if(alreadyFollowed === false){
+  followButton = (
+    <button onClick={this.onFollowClick.bind(this)} className="btn btn-primary">
+      Follow
+    </button>
+  );
+} else {
+  followButton = (
+  <button onClick={this.onUnFollowClick.bind(this)} className="btn btn-primary">
+    UnFollow
+  </button>
+  );
+}
+
+*/
