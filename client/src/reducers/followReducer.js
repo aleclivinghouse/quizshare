@@ -17,7 +17,9 @@ export default function(state = initialState, action){
     case UN_FOLLOW:
     return {
       ...state,
-      [action.id+'-followers']: state[action.id+'-followers'].filter(follow => follow._id !== action.payload._id)
+      [action.id+'-followers']: state[action.id+'-followers'].filter((follow) =>{
+        follow.follower._id !== action.payload
+      })
     }
     case GET_FOLLOWERS:
     return {

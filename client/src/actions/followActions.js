@@ -25,8 +25,8 @@ export const unFollow = (followingId, followerId) => dispatch => {
     .then(res =>
       dispatch({
         type: UN_FOLLOW,
-        payload: res.data,
-        id: followingId
+        payload: followerId,
+        id: followerId
       })
     )
     .catch(err =>
