@@ -19,6 +19,23 @@ export const setFollow = (followingId, followerId) => dispatch => {
       })
     );
 }
+export const unFollow = (followingId, followerId) => dispatch => {
+  axios
+    .delete(`/api/follow/unfollow/${followingId}/${followerId}`)
+    .then(res =>
+      dispatch({
+        type: UN_FOLLOW,
+        payload: res.data,
+        id: followingId
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err
+      })
+    );
+}
 
 export const getFollowers = id => dispatch => {
   axios

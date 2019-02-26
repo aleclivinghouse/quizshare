@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-mongoose.Promise = Promise;
+const deepPopulate = require('mongoose-deep-populate')(mongoose);
 const passport = require('passport');
 const Post = require('../../models/Post');
 const Profile = require('../../models/Profile');
@@ -17,37 +17,29 @@ const User = require('../../models/User');
 //   console.log(follows);
 // })
 
-router.get('/others/:id', (req, res)=> {
+router.get('/others/:id', async(req, res)=> {
   let theArray = [];
-  Follow.find({follower: req.params.id}) //1.
-  .populate('following')
-  .then(follows => { //2.
+  let follows = await Follow.find({follower: req.params.id}) //1.
+  .populate('following');
     let newArray = [];
     for(let follow of follows){ //3
-      let promise = Promise.all([ //4
-        Post.find({ user: follow.following.id }).sort({ date: -1 }),
-        Follow.find({following: follow.following.id}).sort({ date: -1 }),
-        Follow.find({follower: follow.following.id}).sort({ date: -1 }),
-      ])
-        .then(([post, following, follower]) => { //5
-          console.log(post,'6'); //6
-          theArray.push(post);
-          theArray.push(following);
-          theArray.push(follower);
-        });
-        newArray.push(promise);
+        let post = await Post.find({ user: follow.following.id }).sort({ date: -1 });
+        let following = await Follow.find({following: follow.following.id}).sort({ date: -1 });
+        let follower = await Follow.find({follower: follow.following.id}).sort({ date: -1 });
+        theArray.push(post);
+        theArray.push(following);
+        theArray.push(follower);
     }
-    Promise.all(newArray).then(arr => {
-        res.json(theArray); //8
-    });
-  });
+    res.json(theArray); //8
 });
 
-router.get('/own/:id', (req, res) => {
-  Post.find({user: req.params.id})
+router.get('/own/:id', async(req, res) => {
+  let posts = await Post.find({user: req.params.id})
   .sort({ date: -1 })
-  .populate({path: 'likes',  populate: { path: 'likes' }})
-  .then(posts => res.json(posts))
+  .populate('user')
+  .populate('likes.user')
+  .populate('comments.user')
+  res.json(posts);
 });
 
 module.exports = router;

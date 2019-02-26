@@ -42,8 +42,14 @@ router.get('/following/:id', (req, res)=> {
   .then(follow => res.json(follow))
 });
 
-router.delete('/following/:id', (req, res)=> {
-
+router.delete('/unfollow/:followingId/:followerId', (req, res)=> {
+  console.log('these are the params on the backend')
+  console.log(req.params);
+   Follow.findOne({follower: req.params.followerId, following: req.params.followingId})
+   .then(follow => {
+     follow.remove().then(() => res.json({ success: true }));
+   })
+    .catch(err => res.status(404).json({ folownotfound : 'No follow found' }));
 })
 
 module.exports = router;
