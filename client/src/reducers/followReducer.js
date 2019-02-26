@@ -12,15 +12,14 @@ export default function(state = initialState, action){
     case SET_FOLLOW:
     return {
       ...state,
-      [action.id]: [action.payload, ...state[action.id]]
+      [action.id+'-followers']: [action.payload, ...state[action.id+'-followers']]
     }
     case UN_FOLLOW:
     return {
       ...state,
-      [action.id+'-following']: state.f[action.id].filter(follow => follow._id !== action.payload._id)
+      [action.id+'-followers']: state[action.id+'-followers'].filter(follow => follow._id !== action.payload._id)
     }
     case GET_FOLLOWERS:
-    console.log(action.payload);
     return {
       ...state,
       [action.id+'-followers']: action.payload
