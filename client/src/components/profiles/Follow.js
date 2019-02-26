@@ -15,6 +15,8 @@ class Follow extends Component{
 
 
   render(){
+    console.log('follow in the follow compoenent');
+    console.log(this.props.follow);
     const followers = (this.props.follow[this.props.theId+'-followers'] !== undefined) ? this.props.follow[this.props.theId+'-followers']: [];
     const following = (this.props.follow[this.props.theId+'-following'] !== undefined) ? this.props.follow[this.props.theId+'-following']: [];
     return(
