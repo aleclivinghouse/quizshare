@@ -16,11 +16,15 @@ class ProfileItem extends Component {
   }
 
   onFollowClick(){
-    this.props.setFollow(this.props.profile.user._id, this.props.auth.user.id)
+    this.props.setFollow(this.props.profile.user._id, this.props.auth.user.id, ()=>{
+      this.props.getFollowers(this.props.profile.user._id);
+    })
   }
 
   onUnFollowClick(){
-    this.props.unFollow(this.props.profile.user._id, this.props.auth.user.id)
+    this.props.unFollow(this.props.profile.user._id, this.props.auth.user.id, () => {
+      this.props.getFollowers(this.props.profile.user._id);
+    })
   }
   render(){
     const profile = this.props.profile;
@@ -31,13 +35,14 @@ class ProfileItem extends Component {
 
     const findAlreadyFollowed = (followers) => {
         for(let follower of followers){
-        if(follower.follower._id === this.props.profile.user._id){
+        if(follower.follower._id === this.props.auth.user.id){
           return true;
          }
         }
         return false;
       };
     const followers = (this.props.follow[this.props.profile.user._id+'-followers'] !== undefined) ? this.props.follow[this.props.profile.user._id+'-followers']: [];
+
     console.log('these are the follows');
     console.log(this.props.follow[this.props.profile.user._id+'-followers']);
     const alreadyFollowed = findAlreadyFollowed(followers);

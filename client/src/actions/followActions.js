@@ -2,32 +2,25 @@ import axios from 'axios';
 import {SET_FOLLOW, GET_ERRORS, GET_FOLLOWERS, GET_FOLLOWING, UN_FOLLOW} from './types';
 
 
-export const setFollow = (followingId, followerId) => dispatch => {
+export const setFollow = (followingId, followerId, cb) => dispatch => {
   axios
     .post(`/api/follow/${followingId}/${followerId}`)
     .then(res =>
-      dispatch({
-        type: SET_FOLLOW,
-        payload: res.data,
-        id: followingId
-      })
+      cb()
     )
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
         payload: err
+
       })
     );
 }
-export const unFollow = (followingId, followerId) => dispatch => {
+export const unFollow = (followingId, followerId, cb) => dispatch => {
   axios
     .delete(`/api/follow/unfollow/${followingId}/${followerId}`)
     .then(res =>
-      dispatch({
-        type: UN_FOLLOW,
-        payload: followerId,
-        id: followerId
-      })
+      cb()
     )
     .catch(err =>
       dispatch({

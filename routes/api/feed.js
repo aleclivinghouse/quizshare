@@ -3,6 +3,9 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const deepPopulate = require('mongoose-deep-populate')(mongoose);
 const generateLike = require('./FeedHelper').generateLike;
+const generateComment = require('./FeedHelper').generateComment;
+const generateCommentLike = require('./FeedHelper').generateCommentLike;
+const generate = require('./FeedHelper').generate;
 const passport = require('passport');
 const Post = require('../../models/Post');
 const Profile = require('../../models/Profile');
@@ -32,18 +35,37 @@ router.get('/:id', async(req, res)=> {
           let newLike = await generateLike(post, like);
           theArray.push(newLike);
         }
+        for(let comment of post.comments){
+          let newComment = await generateComment(post, comment);
+          theArray.push(newComment);
+          let thing = await generate(post, comment);
+          theArray.push(...thing);
+        }
+
       }
     for(let follow of follows){ //3
-        let post = await Post.find({ user: follow.following.id }).sort({ date: -1 });
-        let following = await Follow.find({following: follow.following.id}).sort({ date: -1 });
-        let follower = await Follow.find({follower: follow.following.id}).sort({ date: -1 });
-        // theArray.push(post);
-        // theArray.push(following);
-        // theArray.push(follower);
+        let posts = await Post.find({ user: follow.follower._id }).sort({ date: -1 });
+        console.log('these are the posts');
+        console.log(posts);
+        for(let post of posts){
+            for(let like of post.likes){
+              let newLike = await generateLike(post, like);
+              theArray.push(newLike);
+            }
+            for(let comment of post.comments){
+              let newComment = await generateComment(post, comment);
+              theArray.push(newComment);
+              let thing = await generate(post, comment);
+              theArray.push(...thing);
+            }
 
+          }
     }
-    console.log(theArray);
-    res.json(theArray); //8
+  const toSend = theArray.sort((a,b) => {
+  return new Date(b.date) - new Date(a.date);
+});
+    // console.log(theArray);
+    res.json(toSend); //8
 });
 
 module.exports = router;
