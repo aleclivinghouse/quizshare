@@ -169,25 +169,7 @@ export const deletePost = id => dispatch => {
       })
     );
 };
-// export const addLike = id => dispatch => {
-//   dispatch(setPostLoading());
-//   axios
-//     .post(`/api/posts/like/${id}`)
-//     .then(res =>
-//       dispatch({
-//         type: GET_POST,
-//         payload: res.data
-//       })
-//     )
-//     .catch(err =>
-//       dispatch({
-//         type: GET_POST,
-//         payload: null
-//       })
-//     );
-// };
-//
-//
+
 
 export const getPost = id => dispatch => {
   dispatch(setPostLoading());

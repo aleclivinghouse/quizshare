@@ -129,7 +129,6 @@ closeModal() {
           </div>
           <div className="col-md-10">
             <p className="lead">{post.text}</p>
-            {showActions ? (
               <span>
                 <button
                   onClick={this.onLikeClick.bind(this, post._id)}
@@ -156,7 +155,6 @@ closeModal() {
                   </button>
                 ) : null}
               </span>
-            ) : null}
           </div>
         </div>
     );

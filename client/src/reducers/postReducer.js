@@ -44,6 +44,7 @@ export default function(state=initialState, action){
       case ADD_LIKE:
       return {
         ...state,
+        post: action.payload,
         posts: state.posts.map(post => {
           if(post._id === action.payload._id){
             post = action.payload;
