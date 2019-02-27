@@ -1,3 +1,6 @@
+const User = require('../../models/User');
+const mongoose = require('mongoose');
+
 const generateLike = (post, like) => {
   let map = {};
   let thePost = {};
@@ -32,6 +35,8 @@ const generateLike = (post, like) => {
  }
 
  const generateCommentLike = (post, comment, like) =>{
+   console.log('this is like user name');
+   console.log(like.user);
    let map = {};
    let thePost = {};
    let theComment = {};
@@ -44,7 +49,7 @@ const generateLike = (post, like) => {
    thePost._id = post._id;
    thePost.name = post.user.name;
    map.comment = theComment;
-   map.like = like.user.name;
+   map.likeId = like.user;
    map.date = like.date;
    map.post = thePost;
    return map;
@@ -53,9 +58,9 @@ const generateLike = (post, like) => {
  const generate = (post, comment) => {
    let newArray = [];
      for(let like of comment.likes){
-       console.log('post');
-       console.log(post);
        let newCommentLike = generateCommentLike(post, comment, like);
+       console.log('this is new Comment Like');
+       console.log(newCommentLike);
        newArray.push(newCommentLike);
      }
    return newArray;

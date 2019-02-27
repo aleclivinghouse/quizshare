@@ -18,3 +18,5 @@ export const SET_FOLLOW = 'SET_FOLLOW';
 export const GET_FOLLOWERS = 'GET_FOLLOWERS';
 export const GET_FOLLOWING = 'GET_FOLLOWING';
 export const UN_FOLLOW = 'UN_FOLLOW';
+export const GET_FEED = 'GET_FEED';
+export const GET_USER = 'GET_USER';

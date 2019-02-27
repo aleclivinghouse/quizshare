@@ -10,6 +10,13 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 //stuff here
 
+
+router.get('/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err => res.status(404).json({ nouserfound: 'No user found' }));
+});
+
 router.post('/register', (req, res) => {
   const { errors, isValid} = validateRegisterInput(req.body);
   if(!isValid){
