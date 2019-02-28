@@ -62,7 +62,7 @@ class ProfileItem extends Component {
     }
 
     return(
-      <div className="card card-body mb-3">
+      <div className="card card-body mb-3 text-center">
         <div className="row">
           <div className="col-lg-6 col-md-4 col-8 top-container">
           <div>
@@ -77,7 +77,7 @@ class ProfileItem extends Component {
 
           <ul className="the-list">
          {posts.map((post, index) => (
-           <div className="post-card">
+           <div className="post-card text-center">
              <li>
                <p>{post.q1}</p>
                <p>{post.q2}</p>
@@ -89,18 +89,6 @@ class ProfileItem extends Component {
            </div>
        ))}
        </ul>
-        </div>
-        <div className="cold-md-4 d-none d-md-block">
-          <h4>Things I like</h4>
-          <ul className="list-group text-center skills">
-            {profile.skills.map((skill, index) => (
-              <li key={index} className="list-group-item">
-                <p>
-                {skill}
-                </p>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     )

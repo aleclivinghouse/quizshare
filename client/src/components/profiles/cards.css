@@ -1,6 +1,6 @@
 .card {
-  background-color: black;
-  color:white;
+  background-color: #fbc02d ;
+  color: grey;
 }
 
 .skills {
@@ -14,8 +14,8 @@ ul {
 
 @media only screen and (min-width: 768px) {
 .post-card{
-  color:blue;
-  background-color: white;
+  color: grey;
+  background-color: lightgrey;
   margin: 10px;
   text-align: center;
   min-width: 600px;
@@ -26,8 +26,8 @@ ul {
 }
 @media only screen and (max-width: 767px) {
 .post-card{
-  color:blue;
-  background-color: white;
+  color: grey;
+  background-color: lightgrey;
   margin: 10px;
   text-align: center;
   min-width: 200px;

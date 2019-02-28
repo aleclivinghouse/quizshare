@@ -19,9 +19,13 @@ class Profiles extends Component {
       profileItems = <h4>Loading...</h4>
     } else {
       if (profiles.length > 0) {
-        profileItems = profiles.map(profile => (
-          <ProfileItem key={profile._id} profile={profile} />
-        ));
+        profileItems = profiles.map((profile) => {
+          console.log('this is the profile user');
+
+          if(profile.user._id !== this.props.auth.user.id){
+            return<ProfileItem key={profile._id} profile={profile} />
+           }
+        });
       } else {
         profileItems = <h4>No profiles found...</h4>;
       }
@@ -47,7 +51,8 @@ class Profiles extends Component {
 
 
 const mapStateToProps = state => ({
-  profile: state.profile
+  profile: state.profile,
+  auth: state.auth
 });
 
 export default connect(mapStateToProps, { getProfiles })(Profiles);

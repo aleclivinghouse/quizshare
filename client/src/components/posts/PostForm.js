@@ -82,7 +82,6 @@ class PostForm extends Component {
       <div className="post-form mb-3">
         <p className="lieError">{this.state.errorLieCount}</p>
         <div className="card card-info">
-          <div className="card-header bg-info text-white"></div>
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">

@@ -29,7 +29,7 @@ router.get('/:id', async(req, res)=> {
 
     let posts = await Post.find({user: req.params.id})
     .sort({ date: -1 }).populate('user').populate('likes.user').populate('comments.user')
-    .populate('comments.likes.user')
+    .populate('comments.likes')
     for(let post of posts){
         for(let like of post.likes){
           let newLike = await generateLike(post, like);
@@ -37,29 +37,29 @@ router.get('/:id', async(req, res)=> {
         }
         for(let comment of post.comments){
           let newComment = await generateComment(post, comment);
-          // theArray.push(newComment);
+          theArray.push(newComment);
           let thing = await generate(post, comment);
-          // theArray.push(...thing);
+          theArray.push(...thing);
         }
 
       }
     for(let follow of follows){ //3
-        let posts = await Post.find({ user: follow.follower._id }).sort({ date: -1 })
+        let posts = await Post.find({ user: follow.following._id }).sort({ date: -1 })
         .sort({ date: -1 }).populate('user').populate('likes.user').populate('comments.user')
         .populate('comments.likes')
         // console.log('these are the posts');
         console.log(posts);
         for(let post of posts){
-          // theArray.push(post);
+          theArray.push(post);
             for(let like of post.likes){
               let newLike = await generateLike(post, like);
-              // theArray.push(newLike);
+              theArray.push(newLike);
             }
             for(let comment of post.comments){
               let newComment = await generateComment(post, comment);
-              // theArray.push(newComment);
+              theArray.push(newComment);
               let thing = await generate(post, comment);
-              // theArray.push(...thing);
+              theArray.push(...thing);
             }
 
           }
@@ -69,6 +69,8 @@ router.get('/:id', async(req, res)=> {
 });
     // console.log(theArray);
     // toSend = toSend.slice(0, 10);
+    // console.log('this is toSend');
+    // console.log(toSend);
     res.json(toSend.slice(0, 20)); //8
 });
 

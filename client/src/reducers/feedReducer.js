@@ -7,13 +7,15 @@ const initialState = {
 export default function(state = initialState, action){
     switch(action.type){
       case GET_FEED:
-      console.log('this is the action payload in the reducer');
-      console.log(action.payload);
+      // console.log('this is the action payload in the reducer');
+      // console.log(action.payload);
       return {
         ...state,
         feed: action.payload
       }
       case GET_USER:
+      console.log('this is should be the user id in the reducer');
+      console.log(action.payload);
       return {
         ...state,
         [action.id+'-user']: action.payload
