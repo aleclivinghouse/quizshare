@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import {Link} from 'react-router-dom';
 
 class FeedCommentItem extends Component{
   render(){
@@ -10,7 +10,8 @@ class FeedCommentItem extends Component{
       <div className="card card-body mb-3">
         <div className="row">
           <div className="col-md-2">
-                <p>This is a feed Item</p>
+            <span>{item.comment.name} commented: <h3>{item.comment.text}</h3> on</span>
+            <Link to={`/post/${item.post._id}`}> {item.post.name}s Post</Link>
           </div>
         </div>
       </div>

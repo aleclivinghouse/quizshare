@@ -33,7 +33,7 @@ router.get('/:id', async(req, res)=> {
     for(let post of posts){
         for(let like of post.likes){
           let newLike = await generateLike(post, like);
-          // theArray.push(newLike);
+          theArray.push(newLike);
         }
         for(let comment of post.comments){
           let newComment = await generateComment(post, comment);
@@ -59,7 +59,7 @@ router.get('/:id', async(req, res)=> {
               let newComment = await generateComment(post, comment);
               // theArray.push(newComment);
               let thing = await generate(post, comment);
-              theArray.push(...thing);
+              // theArray.push(...thing);
             }
 
           }
