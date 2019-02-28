@@ -10,11 +10,11 @@ class FeedPostItem extends Component{
     <div className="card card-body mb-3">
       <div className="row">
           <div className="col-md-10 text-center">
-              <p>{item.name} just posted the following Two Truths and A Lie</p>
+              <p>{item.user.name} just posted the following Two Truths and A Lie</p>
               <p>{item.q1}</p>
               <p>{item.q2}</p>
               <p>{item.q3}</p>
-              <Link to={`/post/${item._id}`}>Go to {item.name}s Two Truths And A Lie</Link>
+              <Link to={`/post/${item._id}`}>Go to {item.user.name}s Two Truths And A Lie</Link>
           </div>
       </div>
     </div>

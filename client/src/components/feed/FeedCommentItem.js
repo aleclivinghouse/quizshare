@@ -10,9 +10,7 @@ class FeedCommentItem extends Component{
       <div className="card card-body mb-3">
         <div className="row">
           <div className="col-md-2">
-            <div className="col-md-10">
                 <p>This is a feed Item</p>
-            </div>
           </div>
         </div>
       </div>
