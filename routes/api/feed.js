@@ -44,7 +44,9 @@ router.get('/:id', async(req, res)=> {
 
       }
     for(let follow of follows){ //3
-        let posts = await Post.find({ user: follow.follower._id }).sort({ date: -1 });
+        let posts = await Post.find({ user: follow.follower._id }).sort({ date: -1 })
+        .sort({ date: -1 }).populate('user').populate('likes.user').populate('comments.user')
+        .populate('comments.likes')
         // console.log('these are the posts');
         // console.log(posts);
         for(let post of posts){
@@ -66,7 +68,8 @@ router.get('/:id', async(req, res)=> {
   return new Date(b.date) - new Date(a.date);
 });
     // console.log(theArray);
-    res.json(toSend); //8
+    // toSend = toSend.slice(0, 10);
+    res.json(toSend.slice(0, 20)); //8
 });
 
 module.exports = router;

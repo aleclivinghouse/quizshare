@@ -12,17 +12,28 @@ class Feed extends Component{
   }
 
   render(){
-    console.log('these are the props in feed');
-    console.log(this.props);
-    return(
-      <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-            </div>
-            <h1>The feed shows up</h1>
-          </div>
-      </div>
-    )
+    // console.log('these are the props in feed');
+    // console.log(this.props.feed.feed);
+    let theFeed = this.props.feed.feed;
+    let feedContent;
+    if(theFeed == null){
+      <h4>Loading...</h4>
+    } else {
+      return theFeed.map((item) =>{
+        if(Object.keys(item).length === 3 && item.hasOwnProperty('like')){
+          return <FeedLikeItem key={item._id} item={item} />
+
+        } else if(Object.keys(item).length === 3 && item.hasOwnProperty('comment')){
+         return <FeedCommentItem key={item._id} item={item} />
+
+        } else if(item.hasOwnProperty('likeId')){
+         return <FeedCommentLikeItem key={item._id} item={item} />
+
+        } else if(item.hasOwnProperty('q1')){
+         return <FeedPostItem key={item._id} item={item} />
+        }
+     });
+    }
   }
 }
 
@@ -59,5 +70,16 @@ if(feed === null){
   })
   console.log('this is the feedContent');
   console.log(feedContent);
+
+
+
+  <div className="container">
+      <div className="row">
+        <div className="col-md-12">
+        </div>
+        <h1>The feed shows up</h1>
+        {feedContent}
+      </div>
+  </div>
 
 */

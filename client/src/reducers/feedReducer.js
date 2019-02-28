@@ -7,6 +7,8 @@ const initialState = {
 export default function(state = initialState, action){
     switch(action.type){
       case GET_FEED:
+      console.log('this is the action payload in the reducer');
+      console.log(action.payload);
       return {
         ...state,
         feed: action.payload
