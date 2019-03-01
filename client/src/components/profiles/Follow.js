@@ -20,7 +20,7 @@ class Follow extends Component{
     const followers = (this.props.follow[this.props.theId+'-followers'] !== undefined) ? this.props.follow[this.props.theId+'-followers']: [];
     const following = (this.props.follow[this.props.theId+'-following'] !== undefined) ? this.props.follow[this.props.theId+'-following']: [];
     return(
-       <Collapsible trigger="See Follows" className="btn btn-secondary">
+       <Collapsible trigger="See Follows" className="btn yellow-btn">
       <div>
         <h6>Followers</h6>
       <ul className="list">

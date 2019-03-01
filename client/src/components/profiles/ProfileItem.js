@@ -64,7 +64,7 @@ class ProfileItem extends Component {
     return(
       <div className="card card-body mb-3 text-center">
         <div className="row">
-          <div className="col-lg-6 col-md-4 col-8 top-container">
+          <div className="col-lg-12 col-md-12 top-container">
           <div>
             <div className="follow-button-wrapper">
               {followButton}

@@ -33,14 +33,16 @@ class PostItem extends Component {
     return (
       <div className="card card-body mb-3">
         <div className="row">
-          <div className="col-md-2">
+          <div className="col-md-12">
             <br />
             <p className="text-center">{post.name}</p>
             <p className="text-center">{post.q1}</p>
             <p className="text-center">{post.q2}</p>
             <p className="text-center">{post.q3}</p>
           </div>
-          <div className="col-md-10">
+          </div>
+          <div className="row">
+          <div className="col-md-12 text-center">
             <p className="lead">{post.text}</p>
             {showActions ? (
               <span>

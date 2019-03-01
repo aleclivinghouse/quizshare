@@ -1,3 +1,7 @@
 ul.list{
   list-style-type: none;
 }
+
+.yellow-btn {
+  background-color: #fdd835;
+}
