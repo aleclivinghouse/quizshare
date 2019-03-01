@@ -94,14 +94,26 @@ closeModal() {
   }
 
   render() {
-    const { post, auth, showActions } = this.props;
 
+    const { post, auth, showActions } = this.props;
+     console.log('this is the post');
+     console.log(this.props);
+     let name;
+     if(post.user._id === auth.user.id ){
+       name = 'Your';
+     } else {
+       name = post.user.name + 's'
+     }
     return (
-      <div className="card card-body">
+      <div className="card card-body mb-3">
         <div className="container">
           <div className="row">
-          <div className="col-md-4 first-column">
-            <p className="text-center">{post.name}</p>
+              <div className="col-md-12">
+                <h2 className="text-center">{name} Two Truths And A Lie</h2>
+            </div>
+          </div>
+          <div className="row">
+          <div className="col-md-4">
               <p className="post-to-guess">{post.q1}</p>
               <button onClick={this.onGuessOne} className="btn btn-light guess-button">Guess One</button>
            </div>
@@ -114,7 +126,7 @@ closeModal() {
                   <button onClick={this.onGuessThree} className="btn btn-light  guess-button">Guess Three</button>
                 </div>
                 </div>
-              </div>
+            </div>
           <div class="modal-wrapper">
             <Modal
               isOpen={this.state.modalIsOpen}
@@ -127,9 +139,10 @@ closeModal() {
               <div>{this.state.message}</div>
             </Modal>
           </div>
-          <div className="col-md-10">
+          <div className="row">
+          <div className="col-md-10 text-center">
             <p className="lead">{post.text}</p>
-              <span>
+              <div>
                 <button
                   onClick={this.onLikeClick.bind(this, post._id)}
                   type="button"
@@ -154,7 +167,8 @@ closeModal() {
                     <i className="fas fa-times" />
                   </button>
                 ) : null}
-              </span>
+              </div>
+            </div>
           </div>
         </div>
     );
@@ -169,6 +183,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { deletePost, addLike })(
-  PostItem
-);
+export default connect(mapStateToProps, { deletePost, addLike })(PostItem);

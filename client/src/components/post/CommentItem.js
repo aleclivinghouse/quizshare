@@ -21,9 +21,6 @@ class CommentItem extends Component {
       <div className="card card-body mb-3">
         <div className="row">
           <div className="col-md-2">
-            <br />
-            <div>
-            </div>
             <p className="text-center">{comment.name}</p>
           </div>
           <div className="col-md-10">
