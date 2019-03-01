@@ -6,10 +6,16 @@
   display: inline-block;
 }
 
-.guess-button{
+/* .guess-button{
   display: inline-block;
-} */
+} */ */
 
 div.col-md-4.first-column{
   margin-top: -15px;
+}
+
+.guess-button {
+  background-color: #fdd835;
+  color: grey;
+  border: none;
 }

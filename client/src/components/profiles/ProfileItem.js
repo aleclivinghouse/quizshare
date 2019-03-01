@@ -55,7 +55,7 @@ class ProfileItem extends Component {
       );
     } else {
       followButton = (
-      <button onClick={this.onUnFollowClick.bind(this)} className="btn btn-primary">
+      <button onClick={this.onUnFollowClick.bind(this)} className="btn btn-primary blue-button">
         UnFollow
       </button>
       );
@@ -66,7 +66,7 @@ class ProfileItem extends Component {
         <div className="row">
           <div className="col-lg-12 col-md-12 top-container">
           <div>
-            <div className="follow-button-wrapper">
+            <div className="follow-button-wrapper mb-3">
               {followButton}
           </div>
             <Follow theId={this.props.profile.user._id}/>

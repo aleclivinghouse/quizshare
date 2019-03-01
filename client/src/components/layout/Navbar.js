@@ -85,6 +85,12 @@ class Navbar extends Component {
                  Create Game
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={`/feed/${this.props.auth.user.id}`}>
+                  {' '}
+                 Feed
+                </Link>
+              </li>
             </ul>
             {isAuthenticated ? authLinks : guestLinks}
           </div>

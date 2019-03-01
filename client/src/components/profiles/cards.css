@@ -55,7 +55,11 @@ ul {
   text-align: center;
 }
 
-.follow-button-wrapper {
+/* .follow-button-wrapper {
   margin-right: 5px;
   display: inline-block;
+} */
+
+.blue-button{
+  margin-bottom: 10px;
 }

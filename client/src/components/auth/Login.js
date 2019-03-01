@@ -81,6 +81,7 @@ class Login extends Component {
                 />
                 <input type="submit" className="btn btn-primary btn-block mt-4" />
               </form>
+              <p className="text-center">demo account username: jim@yahoo.com password: Voodoo12</p>
             </div>
           </div>
         </div>

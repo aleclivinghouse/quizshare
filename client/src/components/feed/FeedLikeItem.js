@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+
 class FeedLikeItem extends Component{
   render(){
     const {item} = this.props;
