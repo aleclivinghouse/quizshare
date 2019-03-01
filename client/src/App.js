@@ -21,6 +21,7 @@ import Profile from './components/profile/Profile';
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
 import Feed from './components/feed/Feed';
+import FeedWrapper from './components/feed/FeedWrapper';
 import './App.css';
 
 if(localStorage.jwtToken){
@@ -63,7 +64,7 @@ class App extends Component {
           <PrivateRoute exact path="/post/:id" component={Post} />
           </Switch>
           <Switch>
-          <PrivateRoute exact path="/feed/:id" component={Feed} />
+          <PrivateRoute exact path="/feed/:id" component={FeedWrapper} />
           </Switch>
         <Footer />
       </div>

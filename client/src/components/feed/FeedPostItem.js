@@ -18,7 +18,7 @@ class FeedPostItem extends Component{
     return (
     <div className="card card-body mb-3">
       <div className="row">
-          <div className="col-md-10 text-center">
+          <div className="col-md-12 text-center">
               <p>{poster} just posted the following Two Truths and A Lie</p>
               <p>{item.q1}</p>
               <p>{item.q2}</p>

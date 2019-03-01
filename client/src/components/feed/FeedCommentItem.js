@@ -17,11 +17,11 @@ class FeedCommentItem extends Component{
         poster = 'Your';
       } else {
         poster = this.props.item.post.name + 's';
-      } 
+      }
     return(
       <div className="card card-body mb-3 text-center">
         <div className="row">
-          <div className="col-md-10">
+          <div className="col-md-12">
             <span>{commenter} commented: <h3>{item.comment.text}</h3> on</span>
             <Link to={`/post/${item.post._id}`}> {poster} Post</Link>
           </div>
