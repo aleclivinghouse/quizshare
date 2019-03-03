@@ -21,10 +21,7 @@ class Profiles extends Component {
       if (profiles.length > 0) {
         profileItems = profiles.map((profile) => {
           console.log('this is the profile user');
-
-          if(profile.user._id !== this.props.auth.user.id){
             return<ProfileItem key={profile._id} profile={profile} />
-           }
         });
       } else {
         profileItems = <h4>No profiles found...</h4>;

@@ -47,24 +47,26 @@ class ProfileItem extends Component {
     console.log(this.props.follow[this.props.profile.user._id+'-followers']);
     const alreadyFollowed = findAlreadyFollowed(followers);
     let followButton;
-    if(alreadyFollowed === false){
+    if(alreadyFollowed === false && this.props.auth.user.id !== this.props.profile.user._id){
       followButton = (
         <button onClick={this.onFollowClick.bind(this)} className="btn btn-primary">
           Follow
         </button>
       );
-    } else {
+    } else if(alreadyFollowed === true && this.props.auth.user.id !== this.props.profile.user._id){
       followButton = (
       <button onClick={this.onUnFollowClick.bind(this)} className="btn btn-primary blue-button">
         UnFollow
       </button>
       );
+    } else {
+      followButton = '';
     }
 
     return(
       <div className="card card-body mb-3 text-center">
         <div className="row">
-          <div className="col-lg-12 col-md-12 top-container">
+          <div className="col-md-12 top-container">
           <div>
             <div className="follow-button-wrapper mb-3">
               {followButton}
@@ -90,6 +92,24 @@ class ProfileItem extends Component {
        ))}
        </ul>
         </div>
+        <div className="cold-md-4 d-none d-md-block">
+        <div className="row">
+          <div className="col-md-2"></div>
+          <div className="col-md-8">
+        <h4>Things I like</h4>
+        <ul className="list-group text-center skills">
+          {profile.skills.map((skill, index) => (
+            <li key={index} className="list-group-item">
+              <p>
+              {skill}
+              </p>
+            </li>
+          ))}
+        </ul>
+       </div>
+        <div className="col-md-2"></div>
+       </div>
+      </div>
       </div>
     )
   }

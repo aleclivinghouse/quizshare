@@ -15,20 +15,23 @@ ul {
 @media only screen and (min-width: 768px) {
 .post-card{
   color: grey;
-  background-color: lightgrey;
-  margin: 10px;
+  background-color: #ffeb3b;
+  margin-left: -50px;
+  margin-bottom: 10px;
   text-align: center;
   min-width: 600px;
   min-height: 200px;
   border-radius: 5px;
+  padding-top: 10px;
 }
 
 }
 @media only screen and (max-width: 767px) {
 .post-card{
   color: grey;
-  background-color: lightgrey;
-  margin: 10px;
+  background-color: #ffeb3b;
+  margin-left: -50px;
+  margin-bottom: 10px;
   text-align: center;
   min-width: 200px;
   min-height: 200px;
@@ -37,6 +40,11 @@ ul {
 
 }
 
+
+.list-group-item {
+  color: grey;
+  background-color: #ffeb3b;
+}
 .the-list {
   margin: auto
 }
@@ -54,6 +62,7 @@ ul {
 .to-center{
   text-align: center;
 }
+
 
 /* .follow-button-wrapper {
   margin-right: 5px;

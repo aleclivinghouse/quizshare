@@ -38,7 +38,7 @@ class FeedCommentLikeItem extends Component{
     <div className="card card-body mb-3">
       <div className="row">
          <div className="col-md-12 text-center">
-           <span>{liker.name} liked {commenter}s comment on {poster} Two Truths and One Lie: </span>
+           <span>{theLiker} liked {commenter} comment on {poster} Two Truths and One Lie: </span>
            <p>{item.comment.text}</p>
            <Link to={`/post/${item.post._id}`}>Go to {poster} Two Truths And A Lie</Link>
          </div>
