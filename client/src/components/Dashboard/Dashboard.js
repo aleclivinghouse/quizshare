@@ -29,7 +29,7 @@ class Dashboard extends Component{
       dashboardContent = (
         <div>
           <p className="lead text-muted"><Link to={`/dashboard`}>Welcome {user.name} </Link></p>
-            <p className="lead text-muted">Hit the profiles tab like above to follow users and find games by user.</p>
+            <p className="lead text-muted">Hit the Profiles tab to follow users and find games by user.</p>
             <p className="lead text-muted">Hit the Create Game tab to create a game and see games sorted by most recent.</p>
             <p className="lead text-muted">Hit the Feed tab to see your individualized activity feed.</p>
             <p className="lead text-muted">Feel free to follow, like, comment, and post.</p>

@@ -155,9 +155,6 @@ closeModal() {
                   />
                   <span className="badge badge-light">{post.likes.length}</span>
                 </button>
-                <Link to={`/post/${post._id}`} className="btn btn-primary mr-1">
-                View Quiz
-                </Link>
                 {post.user === auth.user.id ? (
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}
