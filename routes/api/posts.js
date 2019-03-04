@@ -125,11 +125,15 @@ router.post(
               .length > 0
           ) {
             post.likes = post.likes.filter(like => like.user.toString() !== req.user.id);
-            post.save().then(post => res.json(post));
+            post.save()
+            .then(post => Post.findOne({_id: post._id}).populate('user'))
+            .then(post => res.json(post));
 
           } else {
             post.likes.unshift({ user: req.user.id });
-            post.save().then(post => res.json(post));
+            post.save()
+            .then(post => Post.findOne({_id: post._id}).populate('user'))
+            .then(post => res.json(post));
           }
           // Add user id to likes array
         })
@@ -158,7 +162,9 @@ router.post(
 
             post.comments.splice(removeIndex, 1);
             post.comments.push(theComment);
-            post.save().then(post => res.json(post));
+            post.save()
+            .then(post => Post.findOne({_id: post._id}).populate('user'))
+            .then(post => res.json(post));
 
         } else {
           theComment.likes.unshift({ user: req.user.id });
@@ -168,7 +174,9 @@ router.post(
             .indexOf(req.params.comment_id);
             post.comments.splice(removeIndex, 1);
             post.comments.push(theComment);
-            post.save().then(post => res.json(post));
+            post.save()
+            .then(post => Post.findOne({_id: post._id}).populate('user'))
+            .then(post => res.json(post));
 
         }
 
@@ -206,7 +214,8 @@ router.post(
           post.likes.splice(removeIndex, 1);
 
           // Save
-          post.save().then(post => res.json(post));
+          post.save().then(post => Post.findOne({_id:post._id}).populate('users'))
+              .then(post => res.json(post));
         })
         .catch(err => res.status(404).json({ postnotfound: 'No post found' }));
   }
