@@ -19,3 +19,8 @@ footer {
   background-color: #fdd835;
   color:blue;
 }
+
+.instruction {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

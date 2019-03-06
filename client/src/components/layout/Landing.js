@@ -13,7 +13,13 @@ class Landing extends Component{
             <p className="lead">
               {' '}
             </p>
-            <hr />
+          <img src={require('./Hand.png')} height="200px" />
+          <div className="instruction">
+            <h4>An app that allows users to play Two Truths And A Lie with strangers</h4>
+            <h6>Create a profile and start following users. Feel free to like, comment, and tell your two truths and one lie.</h6>
+          </div>
+          <div>
+          </div>
             <Link to="/register" className="btn btn-lg btn-primary mr-2">
               Sign Up
             </Link>
