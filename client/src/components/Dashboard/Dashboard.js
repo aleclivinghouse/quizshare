@@ -34,7 +34,6 @@ class Dashboard extends Component{
             <p className="lead text-muted">Hit the Feed tab to see your individualized activity feed.</p>
             <p className="lead text-muted">Feel free to follow, like, comment, and post.</p>
           <div style={{marginBottom: '60px'}} />
-          <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">Delete My Account-0</button>
               <Link to="/edit-profile" className="btn btn-light">
                 <i class="fas fa-user-circle text-info mr-1" /> Edit Profile
               </Link>
