@@ -1,8 +1,23 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './layout.css';
 class Landing extends Component{
   render(){
+    const { isAuthenticated, user } = this.props.auth;
+    let buttons;
+    if(!isAuthenticated){
+      buttons = (
+        <div>
+        <Link to="/register" className="btn btn-lg btn-primary mr-2">
+          Sign Up
+        </Link>
+        <Link to="/login" className="btn btn-lg btn-primary">
+          Login
+        </Link>
+        </div>
+      );
+    }
     return(
       <div className="page-wrap">
       <div className="landing-inner">
@@ -20,12 +35,7 @@ class Landing extends Component{
           </div>
           <div>
           </div>
-            <Link to="/register" className="btn btn-lg btn-primary mr-2">
-              Sign Up
-            </Link>
-            <Link to="/login" className="btn btn-lg btn-primary">
-              Login
-            </Link>
+            {buttons}
           </div>
         </div>
       </div>
@@ -34,4 +44,7 @@ class Landing extends Component{
     )
   }
 }
-export default Landing;
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+export default connect(mapStateToProps)(Landing);
