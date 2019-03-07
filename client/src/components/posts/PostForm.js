@@ -18,7 +18,8 @@ class PostForm extends Component {
       a3: '',
       errors: {},
       errorLieCount: '',
-      textError: ''
+      textError: '',
+      success: ''
     };
 
     this.onChange = this.onChange.bind(this);
@@ -68,7 +69,7 @@ class PostForm extends Component {
     console.log('this is new post');
     console.log(newPost);
     this.props.addPost(newPost);
-    this.setState({ text: '' });
+    this.setState({ success: 'Sent Successfully', errorLieCount: '', textError: '' });
   }
 }
 
@@ -141,6 +142,7 @@ class PostForm extends Component {
               </div>
                 <p className="lieError">{this.state.errorLieCount}</p>
                 <p className="lieError">{this.state.textError}</p>
+                  <p className="success">{this.state.success}</p>
               <button type="submit" className="btn btn-dark">
                 Submit
               </button>

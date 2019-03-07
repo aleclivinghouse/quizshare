@@ -19,3 +19,7 @@ div.col-md-4.first-column{
   color: grey;
   border: none;
 }
+
+.success {
+  color: green;
+}
