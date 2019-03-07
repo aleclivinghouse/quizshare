@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const path = require('path');
 const deepPopulate = require('mongoose-deep-populate')(mongoose);
 const generateLike = require('./FeedHelper').generateLike;
 const generateComment = require('./FeedHelper').generateComment;
