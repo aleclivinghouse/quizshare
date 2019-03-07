@@ -17,7 +17,8 @@ class PostForm extends Component {
       q3: '',
       a3: '',
       errors: {},
-      errorLieCount: ''
+      errorLieCount: '',
+      textError: ''
     };
 
     this.onChange = this.onChange.bind(this);
@@ -46,7 +47,9 @@ class PostForm extends Component {
     }
     if(lieCount !== 1){
       this.setState({errorLieCount: 'There must be two truths and a lie'})
-    } else {
+    } else if(this.state.q1.length < 5 || this.state.q2.length < 5 || this.state.q3.length < 5){
+      this.setState({textError: 'Input must be five characters long'})
+    } else  {
     const newPost = {
       name: this.state.name,
       q1: this.state.q1,
@@ -62,6 +65,8 @@ class PostForm extends Component {
         newPost[item] = 'Truth'
       }
     }
+    console.log('this is new post');
+    console.log(newPost);
     this.props.addPost(newPost);
     this.setState({ text: '' });
   }
@@ -80,7 +85,6 @@ class PostForm extends Component {
 
     return (
       <div className="post-form mb-3">
-        <p className="lieError">{this.state.errorLieCount}</p>
         <div className="card card-info">
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
@@ -135,6 +139,8 @@ class PostForm extends Component {
                   options={options}
                   />
               </div>
+                <p className="lieError">{this.state.errorLieCount}</p>
+                <p className="lieError">{this.state.textError}</p>
               <button type="submit" className="btn btn-dark">
                 Submit
               </button>
