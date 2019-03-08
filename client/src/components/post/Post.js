@@ -15,9 +15,9 @@ class Post extends Component {
     const { post, loading } = this.props.post;
     let postContent;
 
-    if (post === null || loading) {
+    if (loading) {
       postContent = <h2>Loading...</h2>;
-    } else if(post === {}){
+    } else if(post === {} || post === null){
       postContent = <h2>Successfully Deleted</h2>;
     }else {
       postContent = (
