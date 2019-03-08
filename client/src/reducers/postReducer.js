@@ -39,6 +39,7 @@ export default function(state=initialState, action){
     case DELETE_POST:
       return {
         ...state,
+        post: {},
         posts: state.posts.filter(post => post._id !== action.payload)
       }
       case ADD_LIKE:
