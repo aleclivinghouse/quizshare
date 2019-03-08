@@ -15,11 +15,9 @@ class Post extends Component {
     const { post, loading } = this.props.post;
     let postContent;
 
-    if (loading) {
+    if (post === null || loading || Object.keys(post).length === 0) {
       postContent = <h2>Loading...</h2>;
-    } else if(post === {} || post === null){
-      postContent = <h2>Successfully Deleted</h2>;
-    }else {
+    } else {
       postContent = (
         <div>
           <PostItem post={post} showActions={false} />
