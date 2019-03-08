@@ -10,7 +10,7 @@ class FeedCommentItem extends Component{
     if(this.props.auth.user.id === this.props.item.comment.commenterId){
       commenter = 'You'
     } else {
-      commenter = item.comment.name +'s';
+      commenter = item.comment.name;
     }
     let poster;
       if(this.props.auth.user.id === this.props.item.post.posterId){
