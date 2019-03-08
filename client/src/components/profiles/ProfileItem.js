@@ -45,7 +45,6 @@ class ProfileItem extends Component {
         return false;
       };
     const followers = (this.props.follow[this.props.profile.user._id+'-followers'] !== undefined) ? this.props.follow[this.props.profile.user._id+'-followers']: [];
-    const following = (this.props.follow[this.props.profile.user._id+'-following'] !== undefined) ? this.props.follow[this.props.profile.user._id+'-following']: [];
     console.log('these are the follows');
     console.log(this.props.follow[this.props.profile.user._id+'-followers']);
     const alreadyFollowed = findAlreadyFollowed(followers);
