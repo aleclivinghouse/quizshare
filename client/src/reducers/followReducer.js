@@ -12,7 +12,8 @@ export default function(state = initialState, action){
     case SET_FOLLOW:
     return {
       ...state,
-      [action.id+'-followers']: [action.payload, ...state[action.id+'-followers']]
+      [action.id+'-followers']: [action.payload, ...state[action.id+'-followers']],
+      [action.id+'-following']: [action.payload, ...state[action.id+'-following']]
     }
     case UN_FOLLOW:
     return {

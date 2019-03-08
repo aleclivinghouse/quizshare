@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import isEmpty from '../../validation/is-empty';
 import {getFollowers} from '../../actions/followActions';
+import {getFollowing} from '../../actions/followActions';
 import {getPostsFromUser} from '../../actions/postActions';
 import {setFollow} from '../../actions/followActions';
 import {unFollow} from '../../actions/followActions';
@@ -18,13 +19,15 @@ class ProfileItem extends Component {
   onFollowClick(){
     this.props.setFollow(this.props.profile.user._id, this.props.auth.user.id, ()=>{
       this.props.getFollowers(this.props.profile.user._id);
-    })
+      this.props.getFollowing(this.props.auth.user.id);
+    });
   }
 
   onUnFollowClick(){
     this.props.unFollow(this.props.profile.user._id, this.props.auth.user.id, () => {
       this.props.getFollowers(this.props.profile.user._id);
-    })
+      this.props.getFollowing(this.props.auth.user.id);
+    });
   }
   render(){
     const profile = this.props.profile;
@@ -42,7 +45,7 @@ class ProfileItem extends Component {
         return false;
       };
     const followers = (this.props.follow[this.props.profile.user._id+'-followers'] !== undefined) ? this.props.follow[this.props.profile.user._id+'-followers']: [];
-
+    const following = (this.props.follow[this.props.profile.user._id+'-following'] !== undefined) ? this.props.follow[this.props.profile.user._id+'-following']: [];
     console.log('these are the follows');
     console.log(this.props.follow[this.props.profile.user._id+'-followers']);
     const alreadyFollowed = findAlreadyFollowed(followers);
@@ -120,4 +123,4 @@ const mapStateToProps = state => ({
   follow: state.follow
 });
 
-export default connect(mapStateToProps, {getPostsFromUser, setFollow, unFollow, getFollowers})(ProfileItem);
+export default connect(mapStateToProps, {getPostsFromUser, setFollow, unFollow, getFollowers, getFollowing})(ProfileItem);
