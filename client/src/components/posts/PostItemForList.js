@@ -61,7 +61,7 @@ class PostItem extends Component {
                 <Link to={`/post/${post._id}`} className="btn btn-primary mr-1">
                 View Quiz
                 </Link>
-                {post.user === auth.user.id ? (
+                {post.user._id === auth.user.id ? (
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}
                     type="button"
