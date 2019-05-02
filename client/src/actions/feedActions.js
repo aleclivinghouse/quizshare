@@ -4,7 +4,7 @@ import {GET_FEED, GET_ERRORS, GET_USER} from './types';
 export const getFeed = id => dispatch => {
   axios
   .get(`/api/feed/${id}`)
-  .then(res => {
+   .then(res => {
     // console.log('this is where we get the feed');
     // console.log(res.data);
     dispatch({

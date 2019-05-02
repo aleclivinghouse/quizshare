@@ -35,7 +35,7 @@ class Dashboard extends Component{
             <p className="lead text-muted">Feel free to follow, like, comment, and post.</p>
           <div style={{marginBottom: '60px'}} />
               <Link to="/edit-profile" className="btn btn-light">
-                <i class="fas fa-user-circle text-info mr-1" /> Edit Profile
+                 <i class="fas fa-user-circle text-info mr-1" /> Edit Profile
               </Link>
         </div>
       );

@@ -3,7 +3,7 @@ import {GET_PROFILE, GET_PROFILES, PROFILE_LOADING, GET_ERRORS, CLEAR_CURRENT_PR
 
 export const getCurrentProfile = () => dispatch => {
   dispatch(setProfileLoading());
-  axios.get('/api/profile')
+   axios.get('/api/profile')
     .then(res =>
       dispatch({
         type: GET_PROFILE,
@@ -20,7 +20,7 @@ export const getCurrentProfile = () => dispatch => {
 
 export const getProfileByHandle = (handle) => dispatch => {
   dispatch(setProfileLoading());
-  axios.get(`/api/profile/handle/${handle}`)
+   axios.get(`/api/profile/handle/${handle}`)
     .then(res =>
       dispatch({
         type: GET_PROFILE,
@@ -37,7 +37,7 @@ export const getProfileByHandle = (handle) => dispatch => {
 
 //create profile
 export const createProfile = (profileData, history) => dispatch => {
-  axios
+   axios
     .post('/api/profile', profileData)
     .then(res => history.push('/dashboard'))
     .catch(err =>

@@ -5,7 +5,7 @@ import {SET_FOLLOW, GET_ERRORS, GET_FOLLOWERS, GET_FOLLOWING, UN_FOLLOW} from '.
 export const setFollow = (followingId, followerId, cb) => dispatch => {
   axios
     .post(`/api/follow/${followingId}/${followerId}`)
-    .then(res =>
+     .then(res =>
       cb()
     )
     .catch(err =>

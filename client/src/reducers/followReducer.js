@@ -25,7 +25,7 @@ export default function(state = initialState, action){
     case GET_FOLLOWERS:
     return {
       ...state,
-      [action.id+'-followers']: action.payload
+       [action.id+'-followers']: action.payload
     }
     case GET_FOLLOWING:
     return {

@@ -15,8 +15,8 @@ class CreateProfile extends Component {
       errors: {},
       bio: ''
     };
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+     this.onChange = this.onChange.bind(this);
+     this.onSubmit = this.onSubmit.bind(this);
   }
   componentWillReceiveProps(nextProps){
     if(nextProps.errors){

@@ -21,6 +21,6 @@ export default function(state = initialState, action){
         [action.id+'-user']: action.payload
       }
       default:
-        return state;
+         return state;
     }
 }

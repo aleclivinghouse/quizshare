@@ -27,7 +27,7 @@ const InputGroup = ({name,
 }
 
 InputGroup.defaultProps = {
-  type: 'text'
+   type: 'text'
 }
 
 export default InputGroup;

@@ -7,11 +7,11 @@ import followReducer from './followReducer';
 import feedReducer from './feedReducer';
 
 export default combineReducers({
-  auth: authReducer,
-  errors: errorReducer,
-  profile: profileReducer,
-  post: postReducer,
-  follow: followReducer,
-  feed: feedReducer
+   auth: authReducer,
+   errors: errorReducer,
+   profile: profileReducer,
+   post: postReducer,
+   follow: followReducer,
+   feed: feedReducer
 
 });

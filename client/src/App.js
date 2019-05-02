@@ -39,7 +39,7 @@ if(localStorage.jwtToken){
 
 class App extends Component {
   render() {
-    return (
+     return (
       <Provider store={store}>
         <Router>
         <div>
