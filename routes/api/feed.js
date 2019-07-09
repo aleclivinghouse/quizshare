@@ -72,7 +72,7 @@ router.get('/:id', async(req, res)=> {
     // toSend = toSend.slice(0, 10);
     // console.log('this is toSend');
     // console.log(toSend);
-    res.json(toSend.slice(0, 20)); //8
+    res.json(toSend.slice(0, 40)); //8
 });
 
 module.exports = router;

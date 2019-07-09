@@ -149,7 +149,7 @@ closeModal() {
                   className="btn btn-light mr-1"
                 >
                   <i
-                    className={classnames('fas fa-thumbs-up', {
+                    className={classnames('fa fa-thumbs-up', {
                       'text-info': this.findUserLike(post.likes)
                     })}
                   />
@@ -161,7 +161,7 @@ closeModal() {
                     type="button"
                     className="btn btn-danger mr-1"
                   >
-                    <i className="fas fa-times" />
+                    <i className="fa fa-times" />
                   </button>
                 ) : null}
               </div>

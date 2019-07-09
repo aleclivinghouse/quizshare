@@ -29,7 +29,6 @@ router.post('/:followingId/:followerId', (req, res) => {
   })
 });
 
-
 //get all of the people following a user
 router.get('/followers/:id', (req, res) => {
   Follow.find({following: req.params.id})
