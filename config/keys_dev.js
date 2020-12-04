@@ -1,4 +1,4 @@
 module.exports = {
-  mongoURI: 'mongodb+srv://@mern-social.nzwc6.mongodb.net/mern-social?retryWrites=true&w=majority',
+  mongoURI: 'mongodb+srv://user:Voodoo12@devconnector.un64g.mongodb.net/devconnector?retryWrites=true&w=majority',
   secretOrKey: 'secret'
 };
